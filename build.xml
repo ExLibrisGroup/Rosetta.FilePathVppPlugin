@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+
+<project basedir="." default="build-all" name="file-path-vpp-plugin">
+	<property file="build.properties" />
+	<path id="jhove-plugin.classpath">
+		<fileset dir="${lib.dir}" includes="*.jar" />
+	</path>
+
+	<target name="build-all" depends=" init, copy_jars, compile, jar"  />
+
+	<target  name="compile" depends="clean, init, copy_jars">
+		<echo>Compile the source files</echo>
+		<javac srcdir="${src.dir}" destdir="${build.dir}/classes" debug="true" includeantruntime="false">
+			<classpath refid="jhove-plugin.classpath" />
+		</javac>
+		<jar destfile="${target.dir}/${project.name}.jar">
+			<fileset dir="${build.dir}" includes="com/exlibris/dps/delivery/vpp/filePath/*.class, PLUGIN-INF/*.xml" />
+			<fileset dir="." includes="lib/jhove*.jar" />
+		</jar>
+	</target>
+
+	<target name="init" depends="clean">
+ 		<echo>Creating the build directory</echo>
+		<mkdir dir="${build.dir}/classes" />
+		<mkdir dir="${build.dir}/lib" />
+		<mkdir dir="${target.dir}" />
+	</target>
+
+	<target name="clean">
+	    <echo>Cleaning the ${build.dir}</echo>
+		<delete dir="${build.dir}" />
+		<delete dir="${target.dir}" />
+	</target>
+
+	<target name="copy_jars">
+			<echo>Copy lib jars</echo>
+			<copy todir="${build.dir}/lib" overwrite="true">
+				<fileset dir="${lib.dir}" includes="dps-sdk-${version}.jar" />
+			</copy>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar destfile="${target.dir}/${project.name}.jar" basedir="${build.dir}/classes">
+			<fileset dir="${src.dir}" includes="**" excludes=" com/**" />
+			<manifest>
+				<attribute name="Main-Class" value="com.exlibris.dps.delivery.vpp.filePath.${project.name}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+		<copy todir="${ant.library.dir}">
+			<fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar" />
+		</copy>
+		<unzip dest="${ant.library.dir}">
+			<patternset includes="jdtCompilerAdapter.jar" />
+			<fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar" />
+		</unzip>
+	</target>
+</project>

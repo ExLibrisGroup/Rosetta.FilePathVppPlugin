@@ -1,0 +1,30 @@
+<pl:metadata-config xmlns:pl="http://www.exlibrisgroup.com/Plugins/1.0/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<pl:pluginTypeName>VPPPlugin</pl:pluginTypeName>
+	<pl:deployName>FilePathViewerPreProcessor</pl:deployName>
+	<pl:className>com.exlibris.dps.delivery.vpp.filePath.FilePathVppPlugin
+	</pl:className>
+	<pl:initParameters/>
+	<pl:description>File Path Viewer Pre Processor</pl:description>
+	<pl:version>2</pl:version>
+	<pl:materialType>DIGITAL</pl:materialType>
+	<pl:module>Delivery</pl:module>
+	<pl:generalType>TASK</pl:generalType>
+	<pl:publicApi>N</pl:publicApi>
+	<pl:implType>java</pl:implType>
+	<pl:contactPerson>
+		<contact_info xmlns="http://www.exlibrisgroup.com/Plugins/1.0/">
+			<contactType>admin</contactType>
+			<firstName>Exlibris</firstName>
+			<lastName>Ltd</lastName>
+			<telephone1>(050)746-1234</telephone1>
+			<telephone2></telephone2>
+			<email>shaib@exlibris.co.il</email>
+			<address1>Agodat Asport2 Building 9</address1>
+			<address2></address2>
+			<city>Jerusalem</city>
+			<zipCode>00000</zipCode>
+			<country>Israel</country>
+		</contact_info>
+	</pl:contactPerson>
+</pl:metadata-config>
