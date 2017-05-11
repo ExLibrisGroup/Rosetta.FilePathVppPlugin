@@ -2,8 +2,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<pl:pluginTypeName>VPPPlugin</pl:pluginTypeName>
 	<pl:deployName>FilePathViewerPreProcessor</pl:deployName>
-	<pl:className>com.exlibris.dps.delivery.vpp.filePath.FilePathVppPlugin
-	</pl:className>
+	<pl:className>com.exlibris.dps.delivery.vpp.filePath.FilePathVppPlugin</pl:className>
 	<pl:initParameters/>
 	<pl:description>File Path Viewer Pre Processor</pl:description>
 	<pl:version>2</pl:version>
